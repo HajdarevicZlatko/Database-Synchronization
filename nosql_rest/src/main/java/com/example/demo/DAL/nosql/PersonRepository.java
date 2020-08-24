@@ -55,10 +55,6 @@ public class PersonRepository implements IDAL<PersonNosql> {
         return null;
     }
 
-    @Override
-    public PersonNosql getByName(String name) {
-        return null;
-    }
 
     @Override
     public boolean updateEntity(PersonNosql personNosql) {
@@ -66,7 +62,12 @@ public class PersonRepository implements IDAL<PersonNosql> {
     }
 
     @Override
-    public boolean removeEntity(PersonNosql personNosql) {
+    public boolean removeEntity(String id) {
+        return false;
+    }
+
+    @Override
+    public boolean insert(PersonNosql personNosql) {
         return false;
     }
 }

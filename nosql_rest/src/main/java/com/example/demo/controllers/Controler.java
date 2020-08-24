@@ -22,8 +22,6 @@ public class Controler {
         List<PersonNosql> list = new ArrayList<>();
         try {
             list = factory.getAll();
-            // NoSql nosql=new NoSql();
-            // list= nosql.GetAllEntities();
         } catch (Exception e) {
             System.out.println("Izuzetak");
             System.out.println(e.toString());

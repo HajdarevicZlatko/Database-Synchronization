@@ -50,17 +50,17 @@ public class PersonRepository implements IDAL<Person>,AutoCloseable{
     }
 
     @Override
-    public Person getByName(String name) {
-        return null;
-    }
-
-    @Override
     public boolean updateEntity(Person person) {
         return false;
     }
 
     @Override
-    public boolean removeEntity(Person person) {
+    public boolean removeEntity(String id) {
+        return false;
+    }
+
+    @Override
+    public boolean insert(Person person) {
         return false;
     }
 
