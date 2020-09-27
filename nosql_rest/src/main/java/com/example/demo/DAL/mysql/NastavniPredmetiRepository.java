@@ -151,6 +151,7 @@ public class NastavniPredmetiRepository implements IDAL<NastavniPredmeti> {
         try {
             PreparedStatement stmt;
             ResultSet rs;
+            con=MySqlDriver.getDriver();
             stmt = con.prepareStatement("select * from nastavni_predmeti where TIP_UST = ? and VU_identifikator = ?");
             stmt.setString(1, tip);
             stmt.setInt(2, identificator);

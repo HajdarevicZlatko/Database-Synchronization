@@ -8,27 +8,36 @@ public class NivoStudija {
     private String naziv;
     private String oznaka;
     private String sts_oznaka;
+    List<StepenStudija> stepenStudijaList;
 
     //CONSTRUCTORS
     public NivoStudija() {
     }
 
+    public NivoStudija(String sts_oznaka, double nivo, String naziv, String oznaka,List<StepenStudija> stepenStudijaList) {
+        this.nivo = nivo;
+        this.naziv = naziv;
+        this.oznaka = oznaka;
+        this.sts_oznaka=sts_oznaka;
+        this.stepenStudijaList=stepenStudijaList;
+    }
+
+    //METHODS
     public String getSts_oznaka() {
         return sts_oznaka;
+    }
+
+    public List<StepenStudija> getStepenStudijaList() {
+        return stepenStudijaList;
+    }
+
+    public void setStepenStudijaList(List<StepenStudija> stepenStudijaList) {
+        this.stepenStudijaList = stepenStudijaList;
     }
 
     public void setSts_oznaka(String sts_oznaka) {
         this.sts_oznaka = sts_oznaka;
     }
-
-    public NivoStudija(String sts_oznaka, double nivo, String naziv, String oznaka) {
-        this.nivo = nivo;
-        this.naziv = naziv;
-        this.oznaka = oznaka;
-        this.sts_oznaka=sts_oznaka;
-    }
-
-    //METHODS
     public double getNivo() {
         return nivo;
     }
@@ -52,7 +61,4 @@ public class NivoStudija {
     public void setOznaka(String oznaka) {
         this.oznaka = oznaka;
     }
-
-
-
 }

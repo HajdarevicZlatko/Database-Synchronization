@@ -1,7 +1,8 @@
 package com.example.demo.factory;
 
 import com.example.demo.DAL.mysql.*;
-import com.example.demo.DAL.neo4j.PersonRepository;
+import com.example.demo.DAL.neo4j.GraphRepository;
+import com.example.demo.DAL.nosql.NosqlRepository;
 import com.example.demo.interfaces.IDAL;
 
 public class DalFactory {
@@ -13,12 +14,12 @@ public class DalFactory {
     }
     public enum Entity
     {
-        Person,
         NASTAVNI_PREDMETI,
         NIVO_STUDIJA,
         REGISTROVANI_PROGRAMI,
         STEPEN_STUDIJA,
-        VISOKOSKOLSKA_USTANOVA
+        VISOKOSKOLSKA_USTANOVA,
+        STUDENT
     }
 public static IDAL getRepository(DB database, Entity entity){
     switch (database){
@@ -29,13 +30,10 @@ public static IDAL getRepository(DB database, Entity entity){
             case VISOKOSKOLSKA_USTANOVA: return new VisokoskolskaUstanovaRepository();
             case REGISTROVANI_PROGRAMI: return new RegistrovaniProgramiRepository();
         };
-        case NOSQL: switch (entity){
-            case Person: return new com.example.demo.DAL.nosql.PersonRepository();
-        }
+        case NOSQL:
+            return new NosqlRepository();
         case GRAPHDB:
-            switch (entity) {
-                case Person: return new PersonRepository();
-            }
+            return new GraphRepository();
         default:return null;
     }
 }

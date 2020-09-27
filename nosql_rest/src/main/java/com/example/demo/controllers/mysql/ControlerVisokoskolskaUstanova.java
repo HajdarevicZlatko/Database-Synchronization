@@ -1,5 +1,6 @@
 package com.example.demo.controllers.mysql;
 
+import com.example.demo.DAL.NoSql;
 import com.example.demo.factory.DalFactory;
 import com.example.demo.interfaces.IDAL;
 import com.example.demo.models.NastavniPredmeti;
@@ -18,6 +19,7 @@ public class ControlerVisokoskolskaUstanova {
         IDAL factory = DalFactory.getRepository(DalFactory.DB.MYSQL, DalFactory.Entity.VISOKOSKOLSKA_USTANOVA);
         List<VisokoskolskaUstanova> list = new ArrayList<>();
         try {
+            new NoSql().AddEntity();
             list = factory.getAll();
         } catch (Exception e) {
             System.out.println("Izuzetak");

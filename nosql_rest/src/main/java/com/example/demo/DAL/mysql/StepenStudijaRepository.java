@@ -2,6 +2,7 @@ package com.example.demo.DAL.mysql;
 
 import com.example.demo.interfaces.IDAL;
 import com.example.demo.models.StepenStudija;
+import com.mysql.jdbc.authentication.MysqlClearPasswordPlugin;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,15 +11,7 @@ import java.util.List;
 public class StepenStudijaRepository implements IDAL<StepenStudija> {
     Connection con;
     public StepenStudijaRepository() {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/nosql","root","");
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        con= MySqlDriver.getDriver();
     }
 
     @Override
@@ -33,8 +26,8 @@ public class StepenStudijaRepository implements IDAL<StepenStudija> {
                 //STS_OZNAKA, STS_NAZIV
                 list.add(new StepenStudija(
                         rs.getString(1),
-                        rs.getString(2),
-                        new NivoStudijaRepository().getAllBySTS_oznaka(rs.getString(1))
+                        rs.getString(2)
+
                 ));
             }
             con.close();
@@ -61,8 +54,7 @@ public class StepenStudijaRepository implements IDAL<StepenStudija> {
                 //String VU_tip_ustanove, int VU_identifikator, String predmet, double verzija, String naziv_predmeta, boolean izborni
                 entity= new StepenStudija(
                         rs.getString(1),
-                        rs.getString(2),
-                        null
+                        rs.getString(2)
                 );
             }
             con.close();
@@ -128,6 +120,32 @@ public class StepenStudijaRepository implements IDAL<StepenStudija> {
             throwables.printStackTrace();
             return false;
         }
+    }
+    public List<StepenStudija> getStepenStudijaBySTS_OZNAKA(final String STS_OZNAKA){
+        List<StepenStudija> list=new ArrayList<>();
+        try {
+
+            ResultSet rs;
+            String query="select * from stepen_studija where STS_OZNAKA = ?";
+            PreparedStatement stmt=con.prepareStatement(query);
+            stmt.setString(1,STS_OZNAKA);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                //STS_OZNAKA, STS_NAZIV
+                list.add(new StepenStudija(
+                        rs.getString(1),
+                        rs.getString(2)
+                ));
+            }
+            con.close();
+        } catch (Exception throwables) {
+            System.out.println(throwables.toString());
+            throwables.printStackTrace();
+        }
+        finally {
+            return list;
+        }
+
     }
 
 

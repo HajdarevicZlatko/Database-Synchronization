@@ -6,23 +6,36 @@ import java.util.List;
 public class VisokoskolskaUstanova {
 
     //PROPERTIES
-    private int id;
-    private String tip_ustanove;
-    private String naziv;
+    /*"TIP_UST=?, " +
+            "VU_IDENTIFIKATOR=?, " +
+            "VU_NAZIV=?, " +
+            "DR_IDENTIFIKATOR=?, " +
+            "VU_OSNOVANA=?, " +
+            "NM_IDENTIFIKATOR=?, " +
+            "VU_ADRESA=?, " +
+            "VU_WEB_ADRESA=?, " +
+            "VU_E_MAIL=?, " +
+            "VV_OZNAKA=?, " +
+            "VU_PIB=?, " +
+            "VU_MATICNI_BROJ=?, " +
+            "VU_GRB=?, " +
+            "VU_MEMORANDUM=?"
+
+     */
+    private int VU_IDENTIFIKATOR;
+    private String TIP_UST;
+    private String VU_NAZIV;
     private String DR_IDENTIFIKATOR;
-    private Date osnovana;
-    private String adresa;
-    private String web_adresa;
-    private String email;
-    private String oznaka;
-    private String PIB;
-    private String maticni_broj;
-    private byte[] grb;
-    private byte[] memorandum;
+    private Date VU_OSNOVANA;
     int NM_IDENTIFIKATOR;
-
-
-
+    private String VU_ADRESA;
+    private String VU_WEB_ADRESA;
+    private String VU_E_MAIL;
+    private String VV_OZNAKA;
+    private String VU_PIB;
+    private String VU_MATICNI_BROJ;
+    private byte[] VU_GRB;
+    private byte[] VU_MEMORANDUM;
     private List<RegistrovaniProgrami> registrovaniProgramiLIst;
     private List<NastavniPredmeti> nastavniPredmeti;
 
@@ -48,8 +61,9 @@ public class VisokoskolskaUstanova {
                         VU_GRB,
                          VU_MEMORANDUM
              */
-            int VU_IDENTIFIKATOR,
+
             String TIP_UST,
+            int VU_IDENTIFIKATOR,
             String VU_NAZIV,
             String DR_IDENTIFIKATOR,
             Date VU_OSNOVANA,
@@ -66,20 +80,20 @@ public class VisokoskolskaUstanova {
             List<NastavniPredmeti> nastavniPredmeti
     )
     {
-        this.id = VU_IDENTIFIKATOR;
-        this.tip_ustanove = TIP_UST;
-        this.naziv = VU_NAZIV;
+        this.VU_IDENTIFIKATOR = VU_IDENTIFIKATOR;
+        this.TIP_UST = TIP_UST;
+        this.VU_NAZIV = VU_NAZIV;
         this.DR_IDENTIFIKATOR = DR_IDENTIFIKATOR;
-        this.osnovana = VU_OSNOVANA;
+        this.VU_OSNOVANA = VU_OSNOVANA;
         this.NM_IDENTIFIKATOR=NM_IDENTIFIKATOR;
-        this.adresa = VU_ADRESA;
-        this.web_adresa = VU_WEB_ADRESA;
-        this.email = VU_E_MAIL;
-        this.oznaka = VV_OZNAKA;
-        this.PIB = VU_PIB;
-        this.maticni_broj = VU_MATICNI_BROJ;
-        this.grb = VU_GRB;
-        this.memorandum = VU_MEMORANDUM;
+        this.VU_ADRESA = VU_ADRESA;
+        this.VU_WEB_ADRESA = VU_WEB_ADRESA;
+        this.VU_E_MAIL = VU_E_MAIL;
+        this.VV_OZNAKA = VV_OZNAKA;
+        this.VU_PIB = VU_PIB;
+        this.VU_MATICNI_BROJ = VU_MATICNI_BROJ;
+        this.VU_GRB = VU_GRB;
+        this.VU_MEMORANDUM = VU_MEMORANDUM;
         this.registrovaniProgramiLIst = registrovaniProgramiLIst;
         this.nastavniPredmeti = nastavniPredmeti;
     }
@@ -117,100 +131,99 @@ public class VisokoskolskaUstanova {
         this.nastavniPredmeti = nastavniPredmeti;
     }
 
-    public int getId() {
-        return id;
+    public int getVU_IDENTIFIKATOR() {
+        return VU_IDENTIFIKATOR;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setVU_IDENTIFIKATOR(int VU_IDENTIFIKATOR) {
+        this.VU_IDENTIFIKATOR = VU_IDENTIFIKATOR;
     }
 
-    public String getTip_ustanove() {
-        return tip_ustanove;
+    public String getTIP_UST() {
+        return TIP_UST;
     }
 
-    public void setTip_ustanove(String tip_ustanove) {
-        this.tip_ustanove = tip_ustanove;
+    public void setTIP_UST(String TIP_UST) {
+        this.TIP_UST = TIP_UST;
     }
 
-    public String getNaziv() {
-        return naziv;
+    public String getVU_NAZIV() {
+        return VU_NAZIV;
     }
 
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
+    public void setVU_NAZIV(String VU_NAZIV) {
+        this.VU_NAZIV = VU_NAZIV;
     }
 
-
-    public Date getOsnovana() {
-        return osnovana;
+    public Date getVU_OSNOVANA() {
+        return VU_OSNOVANA;
     }
 
-    public void setOsnovana(Date osnovana) {
-        this.osnovana = osnovana;
+    public void setVU_OSNOVANA(Date VU_OSNOVANA) {
+        this.VU_OSNOVANA = VU_OSNOVANA;
     }
 
-    public String getAdresa() {
-        return adresa;
+    public String getVU_ADRESA() {
+        return VU_ADRESA;
     }
 
-    public void setAdresa(String adresa) {
-        this.adresa = adresa;
+    public void setVU_ADRESA(String VU_ADRESA) {
+        this.VU_ADRESA = VU_ADRESA;
     }
 
-    public String getWeb_adresa() {
-        return web_adresa;
+    public String getVU_WEB_ADRESA() {
+        return VU_WEB_ADRESA;
     }
 
-    public void setWeb_adresa(String web_adresa) {
-        this.web_adresa = web_adresa;
+    public void setVU_WEB_ADRESA(String VU_WEB_ADRESA) {
+        this.VU_WEB_ADRESA = VU_WEB_ADRESA;
     }
 
-    public String getEmail() {
-        return email;
+    public String getVU_E_MAIL() {
+        return VU_E_MAIL;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setVU_E_MAIL(String VU_E_MAIL) {
+        this.VU_E_MAIL = VU_E_MAIL;
     }
 
-    public String getOznaka() {
-        return oznaka;
+    public String getVV_OZNAKA() {
+        return VV_OZNAKA;
     }
 
-    public void setOznaka(String oznaka) {
-        this.oznaka = oznaka;
+    public void setVV_OZNAKA(String VV_OZNAKA) {
+        this.VV_OZNAKA = VV_OZNAKA;
     }
 
-    public String getPIB() {
-        return PIB;
+    public String getVU_PIB() {
+        return VU_PIB;
     }
 
-    public void setPIB(String PIB) {
-        this.PIB = PIB;
+    public void setVU_PIB(String VU_PIB) {
+        this.VU_PIB = VU_PIB;
     }
 
-    public String getMaticni_broj() {
-        return maticni_broj;
+    public String getVU_MATICNI_BROJ() {
+        return VU_MATICNI_BROJ;
     }
 
-    public void setMaticni_broj(String maticni_broj) {
-        this.maticni_broj = maticni_broj;
+    public void setVU_MATICNI_BROJ(String VU_MATICNI_BROJ) {
+        this.VU_MATICNI_BROJ = VU_MATICNI_BROJ;
     }
 
-    public byte[] getGrb() {
-        return grb;
+    public byte[] getVU_GRB() {
+        return VU_GRB;
     }
 
-    public void setGrb(byte[] grb) {
-        this.grb = grb;
+    public void setVU_GRB(byte[] VU_GRB) {
+        this.VU_GRB = VU_GRB;
     }
 
-    public byte[] getMemorandum() {
-        return memorandum;
+    public byte[] getVU_MEMORANDUM() {
+        return VU_MEMORANDUM;
     }
 
-    public void setMemorandum(byte[] memorandum) {
-        this.memorandum = memorandum;
+    public void setVU_MEMORANDUM(byte[] VU_MEMORANDUM) {
+        this.VU_MEMORANDUM = VU_MEMORANDUM;
     }
 }

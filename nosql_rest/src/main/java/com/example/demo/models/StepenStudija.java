@@ -5,12 +5,10 @@ import java.util.List;
 public class StepenStudija {
     String STS_oznaka;
     String naziv;
-    List<NivoStudija> nivoStudijaList;
 
-    public StepenStudija(String STS_oznaka, String naziv, List<NivoStudija> list) {
+    public StepenStudija(String STS_oznaka, String naziv) {
         this.STS_oznaka = STS_oznaka;
         this.naziv = naziv;
-        nivoStudijaList=list;
     }
 
 
@@ -18,13 +16,6 @@ public class StepenStudija {
     public StepenStudija() {
     }
 
-    public List<NivoStudija> getNivoStudijaList() {
-        return nivoStudijaList;
-    }
-
-    public void setNivoStudijaList(List<NivoStudija> nivoStudijaList) {
-        this.nivoStudijaList = nivoStudijaList;
-    }
     public String getSTS_oznaka() {
         return STS_oznaka;
     }
